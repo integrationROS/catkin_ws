@@ -1,4 +1,4 @@
-prefix=/home/etudiant/catkin_ws/devel/.private/motoman_ms210_support
+prefix=/home/etudiant/catkin_oa/devel/.private/motoman_ms210_support
 
 Name: motoman_ms210_support
 Description: Description of motoman_ms210_support

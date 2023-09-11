@@ -1,6 +1,6 @@
 file(REMOVE_RECURSE
-  "/home/etudiant/catkin_ws/devel/.private/motoman_driver/lib/motoman_driver/io_relay"
-  "/home/etudiant/catkin_ws/devel/.private/motoman_driver/lib/motoman_driver/io_relay.pdb"
+  "/home/etudiant/catkin_oa/devel/.private/motoman_driver/lib/motoman_driver/io_relay"
+  "/home/etudiant/catkin_oa/devel/.private/motoman_driver/lib/motoman_driver/io_relay.pdb"
   "CMakeFiles/motoman_io_relay.dir/src/io_ctrl.cpp.o"
   "CMakeFiles/motoman_io_relay.dir/src/io_relay.cpp.o"
   "CMakeFiles/motoman_io_relay.dir/src/io_relay_node.cpp.o"

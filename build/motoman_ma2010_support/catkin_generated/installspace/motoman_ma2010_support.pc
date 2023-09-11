@@ -1,4 +1,4 @@
-prefix=/home/etudiant/catkin_ws/install
+prefix=/home/etudiant/catkin_oa/install
 
 Name: motoman_ma2010_support
 Description: Description of motoman_ma2010_support

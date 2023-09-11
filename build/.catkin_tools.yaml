@@ -1,6 +1,6 @@
-devel_space: /home/etudiant/catkin_ws/devel
+devel_space: /home/etudiant/catkin_oa/devel
 install: false
-install_space: /home/etudiant/catkin_ws/install
+install_space: /home/etudiant/catkin_oa/install
 profile: default
-source_space: /home/etudiant/catkin_ws/src
-workspace: /home/etudiant/catkin_ws
+source_space: /home/etudiant/catkin_oa/src
+workspace: /home/etudiant/catkin_oa

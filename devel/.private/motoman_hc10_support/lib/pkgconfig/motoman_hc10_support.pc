@@ -1,4 +1,4 @@
-prefix=/home/etudiant/catkin_ws/devel/.private/motoman_hc10_support
+prefix=/home/etudiant/catkin_oa/devel/.private/motoman_hc10_support
 
 Name: motoman_hc10_support
 Description: Description of motoman_hc10_support

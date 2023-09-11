@@ -7,7 +7,7 @@
 # new environment variables
 
 # modified environment variables
-export CMAKE_PREFIX_PATH="/home/etudiant/catkin_ws/devel/.private/motoman_ms210_moveit_config:$CMAKE_PREFIX_PATH"
-export PWD='/home/etudiant/catkin_ws/build/motoman_ms210_moveit_config'
-export ROSLISP_PACKAGE_DIRECTORIES="/home/etudiant/catkin_ws/devel/.private/motoman_ms210_moveit_config/share/common-lisp:$ROSLISP_PACKAGE_DIRECTORIES"
-export ROS_PACKAGE_PATH="/home/etudiant/catkin_ws/src/motoman/motoman_ms210_moveit_config:$ROS_PACKAGE_PATH"
+export CMAKE_PREFIX_PATH="/home/etudiant/catkin_oa/devel/.private/motoman_ms210_moveit_config:$CMAKE_PREFIX_PATH"
+export PWD='/home/etudiant/catkin_oa/build/motoman_ms210_moveit_config'
+export ROSLISP_PACKAGE_DIRECTORIES="/home/etudiant/catkin_oa/devel/.private/motoman_ms210_moveit_config/share/common-lisp:$ROSLISP_PACKAGE_DIRECTORIES"
+export ROS_PACKAGE_PATH="/home/etudiant/catkin_oa/src/motoman/motoman_ms210_moveit_config:$ROS_PACKAGE_PATH"

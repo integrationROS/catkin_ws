@@ -1,4 +1,4 @@
-prefix=/home/etudiant/catkin_ws/install
+prefix=/home/etudiant/catkin_oa/install
 
 Name: motoman_gp200r_support
 Description: Description of motoman_gp200r_support

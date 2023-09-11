@@ -1,4 +1,4 @@
-prefix=/home/etudiant/catkin_ws/install
+prefix=/home/etudiant/catkin_oa/install
 
 Name: motoman_sia50_support
 Description: Description of motoman_sia50_support
