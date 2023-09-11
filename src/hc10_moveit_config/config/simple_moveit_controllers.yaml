@@ -9,7 +9,7 @@ controller_list:
       - joint_3_u
       - joint_4_r
       - joint_5_b
-  - name: hc10_end_controller
+  - name: hc10_hand_controller
     action_ns: follow_joint_trajectory
     type: FollowJointTrajectory
     default: True

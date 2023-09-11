@@ -7,10 +7,10 @@ controller_list:
       - joint_3_u
       - joint_4_r
       - joint_5_b
-  - name: fake_hc10_end_controller
+  - name: fake_hc10_hand_controller
     type: $(arg fake_execution_type)
     joints:
       - joint_6_t
 initial:  # Define initial robot poses per group
   - group: hc10_arm
-    pose: Default
+    pose: home
