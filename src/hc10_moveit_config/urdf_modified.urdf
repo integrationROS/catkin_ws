@@ -6,10 +6,6 @@
 <robot name="motoman_hc10">
     <!-- link list -->
     <link name="world" />
-    <joint name="world_fixed" type="fixed">
-        <parent link="world" />
-        <child link="base_link" />
-    </joint>
     <link name="base_link">
         
 <inertial>
@@ -168,6 +164,11 @@
     <link name="tool0" />
     <!-- end of link list -->
     <!-- joint list -->
+    <joint name="world_fixed" type="fixed">
+        <parent link="world" />
+        <child link="base_link" />
+        <origin rpy="0 0 0" xyz="0 0 0.5" />
+    </joint>
     <joint name="joint_1_s" type="revolute">
         <parent link="base_link" />
         <child link="link_1_s" />
@@ -229,8 +230,131 @@
         <parent link="base_link" />
         <child link="base" />
     </joint>
+    <gazebo reference="base_link">
+        <material>Gazebo/White</material>
+        <mu1>0.2</mu1>
+        <mu2>0.2</mu2>
+    </gazebo>
+    <gazebo reference="link_1_s">
+        <material>Gazebo/White</material>
+        <mu1>0.2</mu1>
+        <mu2>0.2</mu2>
+    </gazebo>
+    <gazebo reference="link_2_l">
+        <material>Gazebo/White</material>
+        <mu1>0.2</mu1>
+        <mu2>0.2</mu2>
+    </gazebo>
+    <gazebo reference="link_3_u">
+        <material>Gazebo/White</material>
+        <mu1>0.2</mu1>
+        <mu2>0.2</mu2>
+    </gazebo>
+    <gazebo reference="link_4_r">
+        <material>Gazebo/White</material>
+        <mu1>0.2</mu1>
+        <mu2>0.2</mu2>
+    </gazebo>
+    <gazebo reference="link_5_b">
+        <material>Gazebo/White</material>
+        <mu1>0.2</mu1>
+        <mu2>0.2</mu2>
+    </gazebo>
+    <gazebo reference="link_6_t">
+        <material>Gazebo/Grey</material>
+        <mu1>0.2</mu1>
+        <mu2>0.2</mu2>
+    </gazebo>
+    <gazebo reference="tool0">
+        <material>Gazebo/Grey</material>
+        <mu1>0.2</mu1>
+        <mu2>0.2</mu2>
+    </gazebo>
     
-<transmission name="trans_joint_1_s">
+<transmission name="_tran_base">
+        <type>transmission_interface/SimpleTransmission</type>
+        <joint name="_base_link-base">
+            <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+        </joint>
+        <actuator name="_motor_base">
+            <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+            <mechanicalReduction>1</mechanicalReduction>
+        </actuator>
+    </transmission>
+    <transmission name="_tran_1">
+        <type>transmission_interface/SimpleTransmission</type>
+        <joint name="_joint_1_s">
+            <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+        </joint>
+        <actuator name="_motor_1">
+            <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+            <mechanicalReduction>1</mechanicalReduction>
+        </actuator>
+    </transmission>
+    <transmission name="_tran_2">
+        <type>transmission_interface/SimpleTransmission</type>
+        <joint name="_joint_2_l">
+            <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+        </joint>
+        <actuator name="_motor_2">
+            <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+            <mechanicalReduction>1</mechanicalReduction>
+        </actuator>
+    </transmission>
+    <transmission name="_tran_3">
+        <type>transmission_interface/SimpleTransmission</type>
+        <joint name="_joint_3_u">
+            <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+        </joint>
+        <actuator name="_motor_3">
+            <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+            <mechanicalReduction>1</mechanicalReduction>
+        </actuator>
+    </transmission>
+    <transmission name="_tran_4">
+        <type>transmission_interface/SimpleTransmission</type>
+        <joint name="_joint_4_r">
+            <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+        </joint>
+        <actuator name="_motor_4">
+            <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+            <mechanicalReduction>1</mechanicalReduction>
+        </actuator>
+    </transmission>
+    <transmission name="_tran_5">
+        <type>transmission_interface/SimpleTransmission</type>
+        <joint name="_joint_5_b">
+            <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+        </joint>
+        <actuator name="_motor_5">
+            <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+            <mechanicalReduction>1</mechanicalReduction>
+        </actuator>
+    </transmission>
+    <transmission name="_tran_6">
+        <type>transmission_interface/SimpleTransmission</type>
+        <joint name="_joint_6">
+            <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+        </joint>
+        <actuator name="_motor_6">
+            <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+            <mechanicalReduction>1</mechanicalReduction>
+        </actuator>
+    </transmission>
+    <transmission name="_tran_7">
+        <type>transmission_interface/SimpleTransmission</type>
+        <joint name="_joint_6-tool0">
+            <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+        </joint>
+        <actuator name="_motor_tool">
+            <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+            <mechanicalReduction>1</mechanicalReduction>
+        </actuator>
+    </transmission>
+    <gazebo>
+        <plugin filename="libgazebo_ros_control.so" name="gazebo_ros_control" />
+    </gazebo>
+    <transmission name="trans_joint_1_s">
         <type>transmission_interface/SimpleTransmission</type>
         <joint name="joint_1_s">
             <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
