@@ -4,11 +4,7 @@
     <xacro:include filename="$(find motoman_resources)/urdf/common_materials.xacro"/>
 
     <!-- link list -->
-    <link name="world"/>
-    <joint name="world_fixed" type="fixed">
-      <parent link="world"/>
-      <child link="${prefix}base_link"/>
-    </joint>    
+    <link name="world"/>   
     <link name="${prefix}base_link">
       <inertial>
         <origin xyz="0 0 0" rpy="0 0 0"/>
@@ -139,6 +135,10 @@
     <!-- end of link list -->
 
     <!-- joint list -->
+    <joint name="world_fixed" type="fixed">
+      <parent link="world"/>
+      <child link="${prefix}base_link"/>
+    </joint> 
     <joint name="${prefix}joint_1_s" type="revolute">
       <parent link="${prefix}base_link"/>
       <child link="${prefix}link_1_s"/>
