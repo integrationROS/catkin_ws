@@ -1,4 +1,3 @@
-<?xml version="1.0"?>
 <launch>
 
   <!-- specify the planning pipeline -->
@@ -7,7 +6,7 @@
   <!-- By default, we do not start a database (it can be large) -->
   <arg name="db" default="false" />
   <!-- Allow user to specify database location -->
-  <arg name="db_path" default="$(find config)/default_warehouse_mongo_db" />
+  <arg name="db_path" default="$(find hc10_moveit_config)/default_warehouse_mongo_db" />
 
   <!-- By default, we are not in debug mode -->
   <arg name="debug" default="false" />
@@ -24,9 +23,7 @@
   <arg name="use_gui" default="false" />
   <arg name="use_rviz" default="true" />
 
-  <rosparam command="load" file="$(find config)/config/sensors_3d.yaml" /> 
   <!-- If needed, broadcast static tf for robot root -->
-  <node pkg="tf2_ros" type="static_transform_publisher" name="virtual_joint_broadcaster_0" args="0 0 0 0 0 0 world base_link" />
 
 
 
@@ -67,6 +64,5 @@
   <include file="$(dirname)/default_warehouse_db.launch" if="$(arg db)">
     <arg name="moveit_warehouse_database_path" value="$(arg db_path)"/>
   </include>
-  <include file="$(find config)/launch/sensor_manager.launch.xml"/>
-  
+
 </launch>
