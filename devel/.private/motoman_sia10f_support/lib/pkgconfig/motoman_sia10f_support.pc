@@ -1,4 +1,4 @@
-prefix=/home/etudiant/catkin_oa/devel/.private/motoman_sia10f_support
+prefix=/home/etudiant/catkin_ws/devel/.private/motoman_sia10f_support
 
 Name: motoman_sia10f_support
 Description: Description of motoman_sia10f_support

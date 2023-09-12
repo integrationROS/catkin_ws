@@ -1,1 +1,1 @@
-/home/etudiant/catkin_oa/devel/.private/motoman_msgs/share/roseus/ros/motoman_msgs/manifest.l
+/home/etudiant/catkin_ws/devel/.private/motoman_msgs/share/roseus/ros/motoman_msgs/manifest.l

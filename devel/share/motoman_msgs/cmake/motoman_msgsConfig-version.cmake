@@ -1,1 +1,1 @@
-/home/etudiant/catkin_oa/devel/.private/motoman_msgs/share/motoman_msgs/cmake/motoman_msgsConfig-version.cmake
+/home/etudiant/catkin_ws/devel/.private/motoman_msgs/share/motoman_msgs/cmake/motoman_msgsConfig-version.cmake

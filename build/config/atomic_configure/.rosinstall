@@ -1,2 +1,2 @@
 - setup-file:
-    local-name: /home/etudiant/catkin_oa/devel/.private/config/setup.sh
+    local-name: /home/etudiant/catkin_ws/devel/.private/config/setup.sh

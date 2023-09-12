@@ -67,14 +67,14 @@ set(config_CONFIG_INCLUDED TRUE)
 
 # set variables for source/devel/install prefixes
 if("FALSE" STREQUAL "TRUE")
-  set(config_SOURCE_PREFIX /home/etudiant/catkin_oa/src/config)
-  set(config_DEVEL_PREFIX /home/etudiant/catkin_oa/devel/.private/config)
+  set(config_SOURCE_PREFIX /home/etudiant/catkin_ws/src/hc10_moveit_config)
+  set(config_DEVEL_PREFIX /home/etudiant/catkin_ws/devel/.private/config)
   set(config_INSTALL_PREFIX "")
   set(config_PREFIX ${config_DEVEL_PREFIX})
 else()
   set(config_SOURCE_PREFIX "")
   set(config_DEVEL_PREFIX "")
-  set(config_INSTALL_PREFIX /home/etudiant/catkin_oa/install)
+  set(config_INSTALL_PREFIX /home/etudiant/catkin_ws/install)
   set(config_PREFIX ${config_INSTALL_PREFIX})
 endif()
 
@@ -154,7 +154,7 @@ foreach(library ${libraries})
     set(lib_path "")
     set(lib "${library}-NOTFOUND")
     # since the path where the library is found is returned we have to iterate over the paths manually
-    foreach(path /home/etudiant/catkin_oa/install/lib;/home/etudiant/catkin_oa/devel/lib;/opt/ros/noetic/lib)
+    foreach(path /home/etudiant/catkin_ws/install/lib;/home/etudiant/catkin_ws/devel/lib;/opt/ros/noetic/lib)
       find_library(lib ${library}
         PATHS ${path}
         NO_DEFAULT_PATH NO_CMAKE_FIND_ROOT_PATH)
