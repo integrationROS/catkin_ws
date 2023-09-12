@@ -116,7 +116,7 @@
     
     <link name="${prefix}tool0"/>
     
-    <link name="camera_rgb_frame"/>
+   
     <!-- end of link list -->
 
     <!-- joint list -->
@@ -181,14 +181,25 @@
     </joint>
     
     <!-- Attach Kinect to table -->
-    <joint type="fixed" name="hand_camera_joint">
-      <origin xyz="0.15 -1 0.1" rpy="0 0 1.57"/>
-      <child link="camera_rgb_frame"/>
-      <parent link="${prefix}tool0"/>
-      <axis xyz="0 0 0" rpy="0 0 0"/>
-      <limit effort="10000" velocity="1000"/>
-      <dynamics damping="1.0" friction="1.0"/>
+    <joint type="fixed" name="camera_joint">
+    	<origin xyz="0 0 0" rpy="0 0 0"/>
+    	<child link="${prefix}camera_link"/>
+    	<parent link="${prefix}tool0"/>
+    	<axis xyz="0 0 0" rpy="0 0 0"/>
+    	<limit effort="10000" velocity="1000"/>
+    	<dynamics damping="1.0" friction="1.0"/>
     </joint>
+    
+  
+   <link name="${prefix}camera_link"> 
+     <visual>
+   	<geometry>
+   	  <box size="0.010 0.03 0.03"/> 
+  	</geometry>
+   	<material name="red"/>
+     </visual>
+   </link>
+    
     <!-- end of joint list -->
 
     <!-- ROS base_link to Robot Manufacturer World Coordinates transform -->
