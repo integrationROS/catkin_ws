@@ -1,37 +1,119 @@
 <?xml version='1.0' encoding='utf-8'?>
-<!-- panda.gazebo.xacro -->
 <robot xmlns:xacro="http://www.ros.org/wiki/xacro">
     <xacro:macro name="hc10_workspace" params="prefix">
+        <!-- Définir le socle -->
         <link name="box">
             <visual>
-              <origin xyz="0 0 0" rpy="0 0 0"/>
-              <geometry>
-                <box size="1.5 1.5 0.15"/>
-             </geometry>
-              <material name="blue">
-                <color rgba="0 0 0.8 1"/>
-              </material>
+                <origin xyz="0 0 0" rpy="0 0 0"/>
+                <geometry>
+                    <box size="1.5 1.5 0.15"/>
+                </geometry>
+                <material name="blue">
+                    <color rgba="0 0 0.8 1"/>
+                </material>
             </visual>
             <collision>
-              <origin xyz="0 0 0" rpy="0 0 0"/>
-              <geometry>
-                <box size="1.5 1.5 0.15"/>
-              </geometry>
+                <origin xyz="0 0 0" rpy="0 0 0"/>
+                <geometry>
+                    <box size="1.5 1.5 0.15"/>
+                </geometry>
             </collision>
             <inertial>
-              <origin xyz="0 0 0" rpy="0 0 0"/>
-              <mass value="100"/>
-              <inertia ixx="1" ixy="0" ixz="0" iyy="1" iyz="0" izz="1"/>
+                <origin xyz="0 0 0" rpy="0 0 0"/>
+                <mass value="100"/>
+                <inertia ixx="1" ixy="0" ixz="0" iyy="1" iyz="0" izz="1"/>
             </inertial>
         </link>
 
-        <!-- joint list -->
+        <!-- Ajouter les parois  -->
+        <link name="wall1">
+            <visual>
+                <origin xyz="0 0.7 0.825" rpy="0 0 0"/>
+                <geometry>
+                    <box size="1.3 0.1 1.5"/>
+                </geometry>
+                <material name="glass">
+                    <color rgba="0.8 0.8 0.8 0.5"/> <!-- Couleur transparente pour du verre -->
+                </material>
+            </visual>
+            <collision>
+                <origin xyz="0 0.7 0.825" rpy="0 0 0"/>
+                <geometry>
+                    <box size="1.5 0.1 1.5"/>
+                </geometry>
+            </collision>
+            <inertial>
+                <origin xyz="0 0.7 0.825" rpy="0 0 0"/>
+                <mass value="1"/>
+                <inertia ixx="1" ixy="0" ixz="0" iyy="1" iyz="0" izz="1"/>
+            </inertial>
+        </link>
+        <link name="wall2">
+            <visual>
+                <origin xyz="-0.7 0 0.825" rpy="0 0 0"/>
+                <geometry>
+                    <box size="0.1 1.5 1.5"/>
+                </geometry>
+                <material name="glass">
+                    <color rgba="0.8 0.8 0.8 0.5"/> <!-- Couleur transparente pour du verre -->
+                </material>
+            </visual>
+            <collision>
+                <origin xyz="-0.7 0 0.825" rpy="0 0 0"/>
+                <geometry>
+                    <box size="0.1 1.5 1.5"/>
+                </geometry>
+            </collision>
+            <inertial>
+                <origin xyz="-0.7 0 0.825" rpy="0 0 0"/>
+                <mass value="1"/>
+                <inertia ixx="1" ixy="0" ixz="0" iyy="1" iyz="0" izz="1"/>
+            </inertial>
+        </link>
+        <link name="wall3">
+            <visual>
+                <origin xyz="0.7 0 0.825" rpy="0 0 0"/>
+                <geometry>
+                    <box size="0.1 1.5 1.5"/>
+                </geometry>
+                <material name="glass">
+                    <color rgba="0.8 0.8 0.8 0.5"/> <!-- Couleur transparente pour du verre -->
+                </material>
+            </visual>
+            <collision>
+                <origin xyz="0.7 0 0.825" rpy="0 0 0"/>
+                <geometry>
+                    <box size="0.1 1.5 1.5"/>
+                </geometry>
+            </collision>
+            <inertial>
+                <origin xyz="0.7 0 0.825" rpy="0 0 0"/>
+                <mass value="1"/>
+                <inertia ixx="1" ixy="0" ixz="0" iyy="1" iyz="0" izz="1"/>
+            </inertial>
+        </link>
+        
+        <!-- joint list pour le socle -->
         <joint name="box_fixed" type="revolute">
             <parent link="world"/>
-            <child link="${prefix}box"/>
+            <child link="box"/>
             <origin xyz="0.75 0.75 0.075" rpy="0 0 0" />
             <dynamics damping="1"/>
             <limit lower="-3.14159" upper="3.14159" effort="10.0" velocity="0.5"/>
-        </joint>  
+        </joint>
+        <joint name="wall1_fixed" type="fixed">
+            <parent link="box"/>
+            <child link="wall1"/>
+        </joint>
+        <joint name="wall2_fixed" type="fixed">
+            <parent link="box"/>
+            <child link="wall2"/>
+        </joint>
+        <joint name="wall3_fixed" type="fixed">
+            <parent link="box"/>
+            <child link="wall3"/>
+        </joint>
+        
     </xacro:macro>
 </robot>
+

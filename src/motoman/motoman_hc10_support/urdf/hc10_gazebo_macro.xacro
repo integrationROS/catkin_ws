@@ -24,6 +24,9 @@
             </gazebo>
         </xacro:macro>
         <xacro:hc10_env link="${prefix}box_fixed"/>
+        <xacro:hc10_env link="${prefix}wall1"/>
+        <xacro:hc10_env link="${prefix}wall2"/>
+        <xacro:hc10_env link="${prefix}wall3"/>
         <xacro:hc10_arm link="${prefix}base_link"/>
         <xacro:hc10_arm link="${prefix}link_1_s"/>
         <xacro:hc10_arm link="${prefix}link_2_l"/>
