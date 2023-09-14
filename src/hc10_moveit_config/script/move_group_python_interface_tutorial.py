@@ -43,6 +43,10 @@
 """
 # Python 2/3 compatibility imports
 from __future__ import print_function
+from audioop import lin2alaw
+from locale import normalize
+from tkinter import N
+from turtle import pos, position
 from six.moves import input
 
 import sys
@@ -53,9 +57,11 @@ import moveit_msgs.msg
 import geometry_msgs.msg
 
 try:
-    from math import pi, tau, dist, fabs, cos
+    import numpy as np
+    from math import pi, tau, dist, fabs, cos, sin
 except:  # For Python 2 compatibility
-    from math import pi, fabs, cos, sqrt
+    import numpy as np
+    from math import pi, fabs, cos, sqrt, sin
 
     tau = 2.0 * pi
 
@@ -208,7 +214,7 @@ class MoveGroupPythonInterfaceTutorial(object):
 
         return all_close(joint_goal, current_joints, 0.01)
 
-    def go_to_pose_goal(self):
+    def go_to_pose_goal(self, orientation_w = 0.11120193534490344, orientation_x = -0.7074742063308836, orientation_y= -0.679324449298975, orientation_z = -0.16010205975151776, position_x = 0.11026193016919225, position_y = 0.3365024822974074, position_z = 1.432950792334329):
         # Copy class variables to local variables to make the web tutorials more clear.
         # In practice, you should use the class variables directly unless you have a good
         # reason not to.
@@ -232,13 +238,13 @@ class MoveGroupPythonInterfaceTutorial(object):
         """
 
         pose_goal = geometry_msgs.msg.Pose()
-        pose_goal.orientation.w = 0.11120193534490344
-        pose_goal.orientation.x = -0.7074742063308836
-        pose_goal.orientation.y = -0.679324449298975
-        pose_goal.orientation.z = -0.16010205975151776
-        pose_goal.position.x = 0.11026193016919225
-        pose_goal.position.y = 0.3365024822974074
-        pose_goal.position.z = 1.432950792334329
+        pose_goal.orientation.w = orientation_w
+        pose_goal.orientation.x = orientation_x
+        pose_goal.orientation.y = orientation_y
+        pose_goal.orientation.z = orientation_z
+        pose_goal.position.x = position_x
+        pose_goal.position.y = position_y
+        pose_goal.position.z = position_z
         # print(move_group.get_current_pose())
         move_group.set_pose_target(pose_goal)
 
@@ -389,7 +395,7 @@ class MoveGroupPythonInterfaceTutorial(object):
         # If we exited the while loop without returning then we timed out
         return False
         ## END_SUB_TUTORIAL
-"""
+    """
     def add_box(self, timeout=4):
         # Copy class variables to local variables to make the web tutorials more clear.
         # In practice, you should use the class variables directly unless you have a good
@@ -487,7 +493,44 @@ class MoveGroupPythonInterfaceTutorial(object):
         return self.wait_for_state_update(
             box_is_attached=False, box_is_known=False, timeout=timeout
         )
-"""
+        """
+
+    def circle(self, a, b, c, nb_pts = 8, r = 0.2):
+        move_group = self.move_group        
+        for i in range(0,nb_pts):
+            t = (tau *i)/nb_pts
+            x = r*cos(t)+a
+            y = r*sin(t)+b
+            z = c+r
+            vec_x = (a-x)
+            vec_y = (b-y)
+            vec_z = (c-z)
+            vec=(vec_x, vec_y, vec_z)
+            normalized_vec=vec/np.linalg.norm(vec)
+            print(x)
+            print(y)
+            print(z)
+
+            print(normalized_vec)
+            """move_group.set_position_target((x,y,z))
+            ## Now, we call the planner to compute the plan and execute it.
+            # `go()` returns a boolean indicating whether the planning and execution was successful.
+            success = move_group.go(wait=True)
+            # Calling `stop()` ensures that there is no residual movement
+            move_group.stop()"""
+            self.go_to_pose_goal(position_x=x, position_y=y, position_z=z, orientation_x=normalized_vec[0], orientation_y=normalized_vec[1], orientation_z=normalized_vec[2], orientation_w=0)
+
+    def test_path(self, x,y,z):
+        move_group = self.move_group
+        move_group.set_position_target((x,y,z))
+        ## Now, we call the planner to compute the plan and execute it.
+        # `go()` returns a boolean indicating whether the planning and execution was successful.
+        success = move_group.go(wait=True)
+        # Calling `stop()` ensures that there is no residual movement
+        move_group.stop()
+        # It is always good to clear your targets after planning with poses.
+        # Note: there is no equivalent function for clear_joint_value_targets().
+        move_group.clear_pose_targets()
 
 def main():
     try:
@@ -502,6 +545,9 @@ def main():
         )
         tutorial = MoveGroupPythonInterfaceTutorial()
 
+        
+
+
         input(
             "============ Press `Enter` to execute a movement using a joint state goal ..."
         )
@@ -513,8 +559,14 @@ def main():
 
         tutorial.go_to_joint_state(joint_0, joint_1,joint_2, joint_3, joint_4)
 
+        input(
+            "============ Press `Enter` to execute a movement using a circle ..."
+        )
+        tutorial.circle(a=-0.33, b=0.33,c=0.2)
+        # tutorial.test_path(0.3,0.3,1.0)
+       
         
-
+        """
         joint_2 = tau/2.0
 
         input(
@@ -526,13 +578,13 @@ def main():
         input(
             "============ Press `Enter` to execute a movement using a joint state goal ..."
         )
-        tutorial.go_to_joint_state(joint_0, joint_1,joint_2, joint_3, joint_4)
+        tutorial.go_to_joint_state(joint_0, joint_1,joint_2, joint_3, joint_4)"""
 
 
 
         input("============ Press `Enter` to execute a movement using a pose goal ...")
         tutorial.go_to_pose_goal()
-        
+
         """
         input("============ Press `Enter` to plan and display a Cartesian path ...")
         cartesian_plan, fraction = tutorial.plan_cartesian_path()
