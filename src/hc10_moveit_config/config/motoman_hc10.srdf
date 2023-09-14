@@ -16,10 +16,6 @@
         <joint name="joint_3_u"/>
         <joint name="joint_4_r"/>
         <joint name="joint_5_b"/>
-        <joint name="base_link-base"/>
-    </group>
-    <group name="hc10_hand">
-        <joint name="joint_6_t"/>
     </group>
     <group name="hc10_env">
         <joint name="box_fixed"/>
@@ -45,6 +41,20 @@
         <joint name="joint_3_u" value="0.8848"/>
         <joint name="joint_4_r" value="0"/>
         <joint name="joint_5_b" value="0"/>
+    </group_state>
+    <group_state name="test_collision2" group="hc10_arm">
+        <joint name="joint_1_s" value="0.1909"/>
+        <joint name="joint_2_l" value="0.9199"/>
+        <joint name="joint_3_u" value="1.1972"/>
+        <joint name="joint_4_r" value="1.2323"/>
+        <joint name="joint_5_b" value="-0.1215"/>
+    </group_state>
+    <group_state name="test_collision_1" group="hc10_arm">
+        <joint name="joint_1_s" value="1.2323"/>
+        <joint name="joint_2_l" value="1.024"/>
+        <joint name="joint_3_u" value="1.2319"/>
+        <joint name="joint_4_r" value="-1.6141"/>
+        <joint name="joint_5_b" value="-0.1562"/>
     </group_state>
     <!--DISABLE COLLISIONS: By default it is assumed that any link of the robot could potentially come into collision with any other link in the robot. This tag disables collision checking between a specified pair of links. -->
     <disable_collisions link1="base_link" link2="link_1_s" reason="Adjacent"/>

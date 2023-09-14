@@ -38,8 +38,3 @@ joint_limits:
     max_velocity: 4.363323129985824
     has_acceleration_limits: false
     max_acceleration: 0
-  joint_6_t:
-    has_velocity_limits: true
-    max_velocity: 4.363323129985824
-    has_acceleration_limits: false
-    max_acceleration: 0

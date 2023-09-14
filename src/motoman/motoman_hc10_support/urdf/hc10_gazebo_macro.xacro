@@ -4,21 +4,28 @@
     <xacro:macro name="hc10_gazebo" params="prefix">
         <xacro:macro name="hc10_env" params="link">
             <gazebo reference="${link}">
-                <material>Gazebo/Blue</material>
+                <material>Gazebo/Pedestrian</material>
                 <mu1>0.2</mu1>
                 <mu2>0.2</mu2>
             </gazebo>
         </xacro:macro>    
+        <xacro:macro name="hc10_obj" params="link">
+            <gazebo reference="${link}">
+                <material>Gazebo/WoodFloor </material>
+                <mu1>0.2</mu1>
+                <mu2>0.2</mu2>
+            </gazebo>
+        </xacro:macro>  
         <xacro:macro name="hc10_arm" params="link">
             <gazebo reference="${link}">
-                <material>Gazebo/White</material>
+                <material>Gazebo/White </material>
                 <mu1>0.2</mu1>
                 <mu2>0.2</mu2>
             </gazebo>
         </xacro:macro>
         <xacro:macro name="hc10_hand_gazebo" params="link">
             <gazebo reference="${link}">
-                <material>Gazebo/Grey</material>
+                <material>Gazebo/DarkMagentaTransparent</material>
                 <mu1>0.2</mu1>
                 <mu2>0.2</mu2>
             </gazebo>
@@ -27,6 +34,7 @@
         <xacro:hc10_env link="${prefix}wall1"/>
         <xacro:hc10_env link="${prefix}wall2"/>
         <xacro:hc10_env link="${prefix}wall3"/>
+        <xacro:hc10_obj link="${prefix}cardboard_box"/>
         <xacro:hc10_arm link="${prefix}base_link"/>
         <xacro:hc10_arm link="${prefix}link_1_s"/>
         <xacro:hc10_arm link="${prefix}link_2_l"/>

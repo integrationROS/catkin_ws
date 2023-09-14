@@ -9,7 +9,7 @@
     <link name="base_link">
         
 <inertial>
-            <origin rpy="0 0 0" xyz="0 0 10" />
+            <origin rpy="0 0 0" xyz="0 0 0" />
             <mass value="0.1" />
             <inertia ixx="0.03" ixy="0.03" ixz="0.03" iyy="0.0" iyz="0.0" izz="0.0" />
         </inertial>
@@ -167,7 +167,7 @@
     <joint name="world_fixed" type="fixed">
         <parent link="world" />
         <child link="base_link" />
-        <origin rpy="0 0 0" xyz="0 0 0.5" />
+        <origin rpy="0 0 0" xyz="0.55 0.4 0.15" />
     </joint>
     <joint name="joint_1_s" type="revolute">
         <parent link="base_link" />
@@ -223,13 +223,31 @@
         <child link="tool0" />
     </joint>
     <!-- end of joint list -->
-    <!-- ROS base_link to Robot Manufacturer World Coordinates transform -->
-    <link name="base" />
-    <joint name="base_link-base" type="fixed">
-        <origin rpy="0 0 0" xyz="0 0 0.275" />
-        <parent link="base_link" />
-        <child link="base" />
-    </joint>
+    <gazebo reference="box_fixed">
+        <material>Gazebo/Pedestrian</material>
+        <mu1>0.2</mu1>
+        <mu2>0.2</mu2>
+    </gazebo>
+    <gazebo reference="wall1">
+        <material>Gazebo/Pedestrian</material>
+        <mu1>0.2</mu1>
+        <mu2>0.2</mu2>
+    </gazebo>
+    <gazebo reference="wall2">
+        <material>Gazebo/Pedestrian</material>
+        <mu1>0.2</mu1>
+        <mu2>0.2</mu2>
+    </gazebo>
+    <gazebo reference="wall3">
+        <material>Gazebo/Pedestrian</material>
+        <mu1>0.2</mu1>
+        <mu2>0.2</mu2>
+    </gazebo>
+    <gazebo reference="cardboard_box">
+        <material>Gazebo/WoodFloor</material>
+        <mu1>0.2</mu1>
+        <mu2>0.2</mu2>
+    </gazebo>
     <gazebo reference="base_link">
         <material>Gazebo/White</material>
         <mu1>0.2</mu1>
@@ -261,7 +279,7 @@
         <mu2>0.2</mu2>
     </gazebo>
     <gazebo reference="link_6_t">
-        <material>Gazebo/Grey</material>
+        <material>Gazebo/DarkMagentaTransparent</material>
         <mu1>0.2</mu1>
         <mu2>0.2</mu2>
     </gazebo>
@@ -338,36 +356,156 @@
     <gazebo>
         <plugin filename="libgazebo_ros_control.so" name="gazebo_ros_control" />
     </gazebo>
+    <!-- Définir le socle -->
     <link name="box">
         <visual>
             <origin rpy="0 0 0" xyz="0 0 0" />
             <geometry>
-                <box size="1 1 1" />
+                <box size="1.5 1.5 0.15" />
             </geometry>
             <material name="blue">
-                <color rgba="0 0 0.8 1" />
+                <color rgba="0.114 0.122 0.102 1" />
             </material>
         </visual>
         <collision>
             <origin rpy="0 0 0" xyz="0 0 0" />
             <geometry>
-                <box size="1 1 1" />
+                <box size="1.5 1.5 0.15" />
             </geometry>
         </collision>
         
 <inertial>
             <origin rpy="0 0 0" xyz="0 0 0" />
+            <mass value="100" />
+            <inertia ixx="1" ixy="0" ixz="0" iyy="1" iyz="0" izz="1" />
+        </inertial>
+
+    </link>
+    <!-- Ajouter les parois  -->
+    <link name="wall1">
+        <visual>
+            <origin rpy="0 0 0" xyz="0 0.7 0.825" />
+            <geometry>
+                <box size="1.3 0.1 1.5" />
+            </geometry>
+            <material name="glass">
+                <color rgba="0.8 0.8 0.8 0.5" />
+                <!-- Couleur transparente pour du verre -->
+            </material>
+        </visual>
+        <collision>
+            <origin rpy="0 0 0" xyz="0 0.7 0.825" />
+            <geometry>
+                <box size="1.5 0.1 1.5" />
+            </geometry>
+        </collision>
+        
+<inertial>
+            <origin rpy="0 0 0" xyz="0 0.7 0.825" />
             <mass value="1" />
             <inertia ixx="1" ixy="0" ixz="0" iyy="1" iyz="0" izz="1" />
         </inertial>
 
     </link>
-    <!-- joint list -->
+    <link name="wall2">
+        <visual>
+            <origin rpy="0 0 0" xyz="-0.7 0 0.825" />
+            <geometry>
+                <box size="0.1 1.5 1.5" />
+            </geometry>
+            <material name="glass">
+                <color rgba="0.8 0.8 0.8 0.5" />
+                <!-- Couleur transparente pour du verre -->
+            </material>
+        </visual>
+        <collision>
+            <origin rpy="0 0 0" xyz="-0.7 0 0.825" />
+            <geometry>
+                <box size="0.1 1.5 1.5" />
+            </geometry>
+        </collision>
+        
+<inertial>
+            <origin rpy="0 0 0" xyz="-0.7 0 0.825" />
+            <mass value="1" />
+            <inertia ixx="1" ixy="0" ixz="0" iyy="1" iyz="0" izz="1" />
+        </inertial>
+
+    </link>
+    <link name="wall3">
+        <visual>
+            <origin rpy="0 0 0" xyz="0.7 0 0.825" />
+            <geometry>
+                <box size="0.1 1.5 1.5" />
+            </geometry>
+            <material name="glass">
+                <color rgba="0.8 0.8 0.8 0.5" />
+                <!-- Couleur transparente pour du verre -->
+            </material>
+        </visual>
+        <collision>
+            <origin rpy="0 0 0" xyz="0.7 0 0.825" />
+            <geometry>
+                <box size="0.1 1.5 1.5" />
+            </geometry>
+        </collision>
+        
+<inertial>
+            <origin rpy="0 0 0" xyz="0.7 0 0.825" />
+            <mass value="1" />
+            <inertia ixx="1" ixy="0" ixz="0" iyy="1" iyz="0" izz="1" />
+        </inertial>
+
+    </link>
+    <!-- joint list pour le socle -->
     <joint name="box_fixed" type="revolute">
         <parent link="world" />
         <child link="box" />
+        <origin rpy="0 0 0" xyz="0.75 0.75 0.075" />
         <dynamics damping="1" />
         <limit effort="10.0" lower="-3.14159" upper="3.14159" velocity="0.5" />
+    </joint>
+    <joint name="wall1_fixed" type="fixed">
+        <parent link="box" />
+        <child link="wall1" />
+    </joint>
+    <joint name="wall2_fixed" type="fixed">
+        <parent link="box" />
+        <child link="wall2" />
+    </joint>
+    <joint name="wall3_fixed" type="fixed">
+        <parent link="box" />
+        <child link="wall3" />
+    </joint>
+    <link name="cardboard_box">
+        <visual>
+            <origin rpy="0 0 0" xyz="0.4 0.15 0.15" />
+            <geometry>
+                <box size="0.2 0.2 0.2" />
+            </geometry>
+            <material name="cardboard">
+                <color rgba="0.7 0.4 0.1 1.0" />
+                <!-- Brown color for cardboard -->
+            </material>
+        </visual>
+        <collision>
+            <origin rpy="0 0 0" xyz="0.4 0.15 0.15" />
+            <geometry>
+                <box size="0.2 0.2 0.2" />
+            </geometry>
+        </collision>
+        
+<inertial>
+            <origin rpy="0 0 0" xyz="0.4 0.15 0.15" />
+            <mass value="1" />
+            <inertia ixx="0.01" ixy="0" ixz="0" iyy="0.01" iyz="0" izz="0.01" />
+        </inertial>
+
+    </link>
+    <!-- Define the joint to fix the box -->
+    <joint name="cardboard_box_fixed" type="fixed">
+        <parent link="box" />
+        <child link="cardboard_box" />
     </joint>
     <transmission name="trans_joint_1_s">
         <type>transmission_interface/SimpleTransmission</type>
@@ -519,34 +657,146 @@
     <gazebo>
         <plugin filename="libgazebo_ros_control.so" name="gazebo_ros_control" />
     </gazebo>
+    <!-- Définir le socle -->
     <link name="box">
         <visual>
             <origin rpy="0 0 0" xyz="0 0 0" />
             <geometry>
-                <box size="1 1 1" />
+                <box size="1.5 1.5 0.15" />
             </geometry>
             <material name="blue">
-                <color rgba="0 0 0.8 1" />
+                <color rgba="0.114 0.122 0.102 1" />
             </material>
         </visual>
         <collision>
             <origin rpy="0 0 0" xyz="0 0 0" />
             <geometry>
-                <box size="1 1 1" />
+                <box size="1.5 1.5 0.15" />
             </geometry>
         </collision>
         <inertial>
             <origin rpy="0 0 0" xyz="0 0 0" />
+            <mass value="100" />
+            <inertia ixx="1" ixy="0" ixz="0" iyy="1" iyz="0" izz="1" />
+        </inertial>
+    </link>
+    <!-- Ajouter les parois  -->
+    <link name="wall1">
+        <visual>
+            <origin rpy="0 0 0" xyz="0 0.7 0.825" />
+            <geometry>
+                <box size="1.3 0.1 1.5" />
+            </geometry>
+            <material name="glass">
+                <color rgba="0.8 0.8 0.8 0.5" />
+                <!-- Couleur transparente pour du verre -->
+            </material>
+        </visual>
+        <collision>
+            <origin rpy="0 0 0" xyz="0 0.7 0.825" />
+            <geometry>
+                <box size="1.5 0.1 1.5" />
+            </geometry>
+        </collision>
+        <inertial>
+            <origin rpy="0 0 0" xyz="0 0.7 0.825" />
             <mass value="1" />
             <inertia ixx="1" ixy="0" ixz="0" iyy="1" iyz="0" izz="1" />
         </inertial>
     </link>
-    <!-- joint list -->
+    <link name="wall2">
+        <visual>
+            <origin rpy="0 0 0" xyz="-0.7 0 0.825" />
+            <geometry>
+                <box size="0.1 1.5 1.5" />
+            </geometry>
+            <material name="glass">
+                <color rgba="0.8 0.8 0.8 0.5" />
+                <!-- Couleur transparente pour du verre -->
+            </material>
+        </visual>
+        <collision>
+            <origin rpy="0 0 0" xyz="-0.7 0 0.825" />
+            <geometry>
+                <box size="0.1 1.5 1.5" />
+            </geometry>
+        </collision>
+        <inertial>
+            <origin rpy="0 0 0" xyz="-0.7 0 0.825" />
+            <mass value="1" />
+            <inertia ixx="1" ixy="0" ixz="0" iyy="1" iyz="0" izz="1" />
+        </inertial>
+    </link>
+    <link name="wall3">
+        <visual>
+            <origin rpy="0 0 0" xyz="0.7 0 0.825" />
+            <geometry>
+                <box size="0.1 1.5 1.5" />
+            </geometry>
+            <material name="glass">
+                <color rgba="0.8 0.8 0.8 0.5" />
+                <!-- Couleur transparente pour du verre -->
+            </material>
+        </visual>
+        <collision>
+            <origin rpy="0 0 0" xyz="0.7 0 0.825" />
+            <geometry>
+                <box size="0.1 1.5 1.5" />
+            </geometry>
+        </collision>
+        <inertial>
+            <origin rpy="0 0 0" xyz="0.7 0 0.825" />
+            <mass value="1" />
+            <inertia ixx="1" ixy="0" ixz="0" iyy="1" iyz="0" izz="1" />
+        </inertial>
+    </link>
+    <!-- joint list pour le socle -->
     <joint name="box_fixed" type="revolute">
         <parent link="world" />
         <child link="box" />
+        <origin rpy="0 0 0" xyz="0.75 0.75 0.075" />
         <dynamics damping="1" />
         <limit effort="10.0" lower="-3.14159" upper="3.14159" velocity="0.5" />
+    </joint>
+    <joint name="wall1_fixed" type="fixed">
+        <parent link="box" />
+        <child link="wall1" />
+    </joint>
+    <joint name="wall2_fixed" type="fixed">
+        <parent link="box" />
+        <child link="wall2" />
+    </joint>
+    <joint name="wall3_fixed" type="fixed">
+        <parent link="box" />
+        <child link="wall3" />
+    </joint>
+    <link name="cardboard_box">
+        <visual>
+            <origin rpy="0 0 0" xyz="0.4 0.15 0.15" />
+            <geometry>
+                <box size="0.2 0.2 0.2" />
+            </geometry>
+            <material name="cardboard">
+                <color rgba="0.7 0.4 0.1 1.0" />
+                <!-- Brown color for cardboard -->
+            </material>
+        </visual>
+        <collision>
+            <origin rpy="0 0 0" xyz="0.4 0.15 0.15" />
+            <geometry>
+                <box size="0.2 0.2 0.2" />
+            </geometry>
+        </collision>
+        <inertial>
+            <origin rpy="0 0 0" xyz="0.4 0.15 0.15" />
+            <mass value="1" />
+            <inertia ixx="0.01" ixy="0" ixz="0" iyy="0.01" iyz="0" izz="0.01" />
+        </inertial>
+    </link>
+    <!-- Define the joint to fix the box -->
+    <joint name="cardboard_box_fixed" type="fixed">
+        <parent link="box" />
+        <child link="cardboard_box" />
     </joint>
     <transmission name="trans_joint_1_s">
         <type>transmission_interface/SimpleTransmission</type>
