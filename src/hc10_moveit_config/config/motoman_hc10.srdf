@@ -16,7 +16,6 @@
         <joint name="joint_3_u"/>
         <joint name="joint_4_r"/>
         <joint name="joint_5_b"/>
-        <joint name="base_link-base"/>
         <joint name="joint_6_t"/>
         <joint name="joint_6_t-tool0"/>
         <joint name="camera_joint"/>

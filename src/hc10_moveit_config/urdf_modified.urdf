@@ -224,12 +224,6 @@
     </joint>
     <!-- end of joint list -->
     <!-- ROS base_link to Robot Manufacturer World Coordinates transform -->
-    <link name="base" />
-    <joint name="base_link-base" type="fixed">
-        <origin rpy="0 0 0" xyz="0 0 0.275" />
-        <parent link="base_link" />
-        <child link="base" />
-    </joint>
     <gazebo reference="box_fixed">
         <material>Gazebo/Blue</material>
         <mu1>0.2</mu1>
@@ -266,30 +260,20 @@
         <mu2>0.2</mu2>
     </gazebo>
     <gazebo reference="link_6_t">
-        <material>Gazebo/Grey</material>
+        <material>Gazebo/White</material>
         <mu1>0.2</mu1>
         <mu2>0.2</mu2>
     </gazebo>
     <gazebo reference="tool0">
-        <material>Gazebo/Grey</material>
+        <material>Gazebo/White</material>
         <mu1>0.2</mu1>
         <mu2>0.2</mu2>
     </gazebo>
     <gazebo reference="camera_link">
-        <material>Gazebo/Grey</material>
+        <material>Gazebo/White</material>
         <mu1>0.2</mu1>
         <mu2>0.2</mu2>
     </gazebo>
-    <transmission name="_tran_base">
-        <type>transmission_interface/SimpleTransmission</type>
-        <joint name="world_fixed">
-            <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
-        </joint>
-        <actuator name="_motor_base">
-            <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
-            <mechanicalReduction>1</mechanicalReduction>
-        </actuator>
-    </transmission>
     <transmission name="_tran_1">
         <type>transmission_interface/SimpleTransmission</type>
         <joint name="joint_1_s">
@@ -399,7 +383,6 @@
             <geometry>
                 <box size="0.010 0.03 0.03" />
             </geometry>
-            <material name="red" />
         </visual>
     </link>
     <gazebo reference="camera_link">
@@ -516,17 +499,7 @@
     </gazebo>
 </robot>
 
-<transmission name="_tran_base">
-        <type>transmission_interface/SimpleTransmission</type>
-        <joint name="world_fixed">
-            <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
-        </joint>
-        <actuator name="_motor_base">
-            <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
-            <mechanicalReduction>1</mechanicalReduction>
-        </actuator>
-    </transmission>
-    <transmission name="_tran_1">
+<transmission name="_tran_1">
         <type>transmission_interface/SimpleTransmission</type>
         <joint name="joint_1_s">
             <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
@@ -633,7 +606,6 @@
             <geometry>
                 <box size="0.010 0.03 0.03" />
             </geometry>
-            <material name="red" />
         </visual>
     </link>
     <gazebo reference="camera_link">

@@ -3,7 +3,6 @@ node [shape=box];
 "world" [label="world"];
 "box" [label="box"];
 "base_link" [label="base_link"];
-"base" [label="base"];
 "link_1_s" [label="link_1_s"];
 "link_2_l" [label="link_2_l"];
 "link_3_u" [label="link_3_u"];
@@ -17,8 +16,6 @@ node [shape=ellipse, color=blue, fontcolor=blue];
 "box_fixed" -> "box"
 "world" -> "world_fixed" [label="xyz: 0.1 0.1 0.5 \nrpy: 0 -0 0"]
 "world_fixed" -> "base_link"
-"base_link" -> "base_link-base" [label="xyz: 0 0 0.275 \nrpy: 0 -0 0"]
-"base_link-base" -> "base"
 "base_link" -> "joint_1_s" [label="xyz: 0 0 0.275 \nrpy: 0 -0 0"]
 "joint_1_s" -> "link_1_s"
 "link_1_s" -> "joint_2_l" [label="xyz: 0 0 0 \nrpy: 0 -0 0"]
