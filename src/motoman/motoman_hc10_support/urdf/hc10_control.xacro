@@ -14,7 +14,6 @@
                 </actuator>
             </transmission>
         </xacro:macro>
-        <xacro:hc10_arm_control transmission="${prefix}_tran_base" joint="${prefix}world_fixed" motor="${prefix}_motor_base"/>
         <xacro:hc10_arm_control transmission="${prefix}_tran_1" joint="${prefix}joint_1_s" motor="${prefix}_motor_1"/>
         <xacro:hc10_arm_control transmission="${prefix}_tran_2" joint="${prefix}joint_2_l" motor="${prefix}_motor_2"/>
         <xacro:hc10_arm_control transmission="${prefix}_tran_3" joint="${prefix}joint_3_u" motor="${prefix}_motor_3"/>

@@ -16,13 +16,6 @@
                 <mu2>0.2</mu2>
             </gazebo>
         </xacro:macro>
-        <xacro:macro name="hc10_hand_gazebo" params="link">
-            <gazebo reference="${link}">
-                <material>Gazebo/Grey</material>
-                <mu1>0.2</mu1>
-                <mu2>0.2</mu2>
-            </gazebo>
-        </xacro:macro>
         <xacro:hc10_env link="${prefix}box_fixed"/>
         <xacro:hc10_arm link="${prefix}base_link"/>
         <xacro:hc10_arm link="${prefix}link_1_s"/>
@@ -30,8 +23,8 @@
         <xacro:hc10_arm link="${prefix}link_3_u"/>
         <xacro:hc10_arm link="${prefix}link_4_r"/>
         <xacro:hc10_arm link="${prefix}link_5_b"/>
-        <xacro:hc10_hand_gazebo link="${prefix}link_6_t"/>
-        <xacro:hc10_hand_gazebo link="${prefix}tool0"/>
-        <xacro:hc10_hand_gazebo link="${prefix}camera_link"/>
+        <xacro:hc10_arm link="${prefix}link_6_t"/>
+        <xacro:hc10_arm link="${prefix}tool0"/>
+        <xacro:hc10_arm link="${prefix}camera_link"/>
     </xacro:macro>
 </robot>
