@@ -204,8 +204,7 @@ class MoveGroupPythonInterfaceTutorial(object):
 
         # For testing:
         current_joints = move_group.get_current_joint_values()
-
-        # print(move_group.get_current_pose())
+        print(move_group.get_current_pose())
 
         return all_close(joint_goal, current_joints, 0.01)
 
@@ -221,25 +220,25 @@ class MoveGroupPythonInterfaceTutorial(object):
         ## ^^^^^^^^^^^^^^^^^^^^^^^
         ## We can plan a motion for this group to a desired pose for the
         ## end-effector:
-
-        """x: 0.09725859736593673
-        y: 0.4239168200295642
-        z: 0.4859623836926631
-
-        x: 0.305209954907275
-        y: 0.3800551764137823
-        z: -0.4885722707904163
-        w: 0.7236726349125576"""
-
+        """
+        x: 0.11026193016919225
+        y: 0.3365024822974074
+        z: 1.432950792334329
+        orientation: 
+        x: -0.7074742063308836
+        y: -0.679324449298975
+        z: -0.16010205975151776
+        w: 0.11120193534490344
+        """
 
         pose_goal = geometry_msgs.msg.Pose()
-        pose_goal.orientation.w = 0.7236726349125576
-        pose_goal.orientation.x = 0.305209954907275
-        pose_goal.orientation.y = 0.3800551764137823
-        pose_goal.orientation.z = -0.4885722707904163
-        pose_goal.position.x = 0.09725859736593673
-        pose_goal.position.y = 0.4239168200295642
-        pose_goal.position.z = 0.4859623836926631
+        pose_goal.orientation.w = 0.11120193534490344
+        pose_goal.orientation.x = -0.7074742063308836
+        pose_goal.orientation.y = -0.679324449298975
+        pose_goal.orientation.z = -0.16010205975151776
+        pose_goal.position.x = 0.11026193016919225
+        pose_goal.position.y = 0.3365024822974074
+        pose_goal.position.z = 1.432950792334329
         # print(move_group.get_current_pose())
         move_group.set_pose_target(pose_goal)
 
@@ -534,7 +533,7 @@ def main():
         input("============ Press `Enter` to execute a movement using a pose goal ...")
         tutorial.go_to_pose_goal()
         
-
+        """
         input("============ Press `Enter` to plan and display a Cartesian path ...")
         cartesian_plan, fraction = tutorial.plan_cartesian_path()
 
@@ -551,7 +550,7 @@ def main():
         )
         cartesian_plan, fraction = tutorial.plan_cartesian_path(scale=-1)
         tutorial.execute_plan(cartesian_plan)
-
+        """
 
         print("============ Python tutorial demo complete!")
     except rospy.ROSInterruptException:
