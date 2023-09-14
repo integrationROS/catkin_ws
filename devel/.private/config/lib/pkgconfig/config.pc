@@ -1,8 +1,0 @@
-prefix=/home/etudiant/catkin_ws/devel/.private/config
-
-Name: config
-Description: Description of config
-Version: 0.3.0
-Cflags: 
-Libs: -L${prefix}/lib 
-Requires: 

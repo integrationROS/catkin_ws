@@ -1,6 +1,6 @@
 set(_CATKIN_CURRENT_PACKAGE "hc10_moveit_config")
 set(hc10_moveit_config_VERSION "0.3.0")
-set(hc10_moveit_config_MAINTAINER "anna <olfi.anna@gmail.com>")
+set(hc10_moveit_config_MAINTAINER "Mouhamad_Manon <mouhamad-moustapha.sylla@univ-tlse3.fr>")
 set(hc10_moveit_config_PACKAGE_FORMAT "1")
 set(hc10_moveit_config_BUILD_DEPENDS )
 set(hc10_moveit_config_BUILD_EXPORT_DEPENDS "moveit_ros_move_group" "moveit_fake_controller_manager" "moveit_kinematics" "moveit_planners_ompl" "moveit_ros_visualization" "moveit_setup_assistant" "moveit_simple_controller_manager" "joint_state_publisher" "joint_state_publisher_gui" "robot_state_publisher" "rviz" "tf2_ros" "xacro" "motoman_hc10_support")

@@ -20,7 +20,8 @@
   <!-- Load default settings for kinematics; these settings are overridden by settings in a node's namespace -->
   <group ns="$(arg robot_description)_kinematics">
     <rosparam command="load" file="$(find hc10_moveit_config)/config/kinematics.yaml"/>
-
+    <rosparam command="load" ns="hc10_arm" file="$(find motoman_hc10_support)/config/joint_names_hc10.yaml"/>
+    <rosparam command="load" ns="hc10_hand" file="$(find motoman_hc10_support)/config/joint_names_hc10.yaml"/>
   </group>
 
 </launch>

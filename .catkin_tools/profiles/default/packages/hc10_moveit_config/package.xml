@@ -5,8 +5,8 @@
   <description>
      An automatically generated package with all the configuration and launch files for using the motoman_hc10 with the MoveIt Motion Planning Framework
   </description>
-  <author email="olfi.anna@gmail.com">anna</author>
-  <maintainer email="olfi.anna@gmail.com">anna</maintainer>
+  <author email="mouhamad-moustapha.sylla@univ-tlse3.fr">Mouhamad_Manon</author>
+  <maintainer email="mouhamad-moustapha.sylla@univ-tlse3.fr">Mouhamad_Manon</maintainer>
 
   <license>BSD</license>
 

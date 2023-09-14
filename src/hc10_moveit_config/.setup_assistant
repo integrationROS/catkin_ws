@@ -6,6 +6,6 @@ moveit_setup_assistant_config:
   SRDF:
     relative_path: config/motoman_hc10.srdf
   CONFIG:
-    author_name: anna
-    author_email: olfi.anna@gmail.com
-    generated_timestamp: 1694528062
+    author_name: Mouhamad_Manon
+    author_email: mouhamad-moustapha.sylla@univ-tlse3.fr
+    generated_timestamp: 1694682035
