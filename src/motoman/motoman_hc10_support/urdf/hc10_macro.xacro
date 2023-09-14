@@ -5,10 +5,12 @@
 
     <!-- link list -->
     <link name="world"/>
+
     <joint name="world_fixed" type="fixed">
       <parent link="world"/>
       <child link="${prefix}base_link"/>
-    </joint>    
+    </joint>
+
     <link name="${prefix}base_link">
       <inertial>
         <origin xyz="0 0 0" rpy="0 0 0"/>
@@ -27,12 +29,8 @@
         </geometry>
       </collision>
     </link>
+    
     <link name="${prefix}link_1_s">
-      <inertial>
-        <origin xyz="0 0 0" rpy="0 0 0"/>
-        <mass value="0.1"/>
-        <inertia ixx="0.03" ixy="0.03" ixz="0.03" iyy="0.0" iyz="0.0" izz="0.0"/>
-      </inertial>    
       <visual>
         <geometry>
           <mesh filename="package://motoman_hc10_support/meshes/hc10/visual/link_1_s.dae"/>
@@ -45,12 +43,8 @@
         </geometry>
       </collision>
     </link>
+    
     <link name="${prefix}link_2_l">
-      <inertial>
-        <origin xyz="0 0 0" rpy="0 0 0"/>
-        <mass value="0.1"/>
-        <inertia ixx="0.03" ixy="0.03" ixz="0.03" iyy="0.0" iyz="0.0" izz="0.0"/>
-      </inertial>    
       <visual>
         <geometry>
           <mesh filename="package://motoman_hc10_support/meshes/hc10/visual/link_2_l.dae"/>
@@ -61,14 +55,10 @@
         <geometry>
           <mesh filename="package://motoman_hc10_support/meshes/hc10/collision/link_2_l.stl"/>
         </geometry>
-      </collision>hc10_macro
+      </collision>
     </link>
+    
     <link name="${prefix}link_3_u">
-      <inertial>
-        <origin xyz="0 0 0" rpy="0 0 0"/>
-        <mass value="0.1"/>
-        <inertia ixx="0.03" ixy="0.03" ixz="0.03" iyy="0.0" iyz="0.0" izz="0.0"/>
-      </inertial>    
       <visual>
         <geometry>
           <mesh filename="package://motoman_hc10_support/meshes/hc10/visual/link_3_u.dae"/>
@@ -81,12 +71,8 @@
         </geometry>
       </collision>
     </link>
+    
     <link name="${prefix}link_4_r">
-      <inertial>
-        <origin xyz="0 0 0" rpy="0 0 0"/>
-        <mass value="0.1"/>
-        <inertia ixx="0.03" ixy="0.03" ixz="0.03" iyy="0.0" iyz="0.0" izz="0.0"/>
-      </inertial>    
       <visual>
         <geometry>
           <mesh filename="package://motoman_hc10_support/meshes/hc10/visual/link_4_r.dae"/>
@@ -99,12 +85,8 @@
         </geometry>
       </collision>
     </link>
+    
     <link name="${prefix}link_5_b">
-      <inertial>
-        <origin xyz="0 0 0" rpy="0 0 0"/>
-        <mass value="0.1"/>
-        <inertia ixx="0.03" ixy="0.03" ixz="0.03" iyy="0.0" iyz="0.0" izz="0.0"/>
-      </inertial>    
       <visual>
         <geometry>
           <mesh filename="package://motoman_hc10_support/meshes/hc10/visual/link_5_b.dae"/>
@@ -117,12 +99,8 @@
         </geometry>
       </collision>
     </link>
+    
     <link name="${prefix}link_6_t">
-      <inertial>
-        <origin xyz="0 0 0" rpy="0 0 0"/>
-        <mass value="0.1"/>
-        <inertia ixx="0.03" ixy="0.03" ixz="0.03" iyy="0.0" iyz="0.0" izz="0.0"/>
-      </inertial>    
       <visual>
         <geometry>
           <mesh filename="package://motoman_hc10_support/meshes/hc10/visual/link_6_t.dae"/>
@@ -135,7 +113,10 @@
         </geometry>
       </collision>
     </link>
+    
     <link name="${prefix}tool0"/>
+    
+   
     <!-- end of link list -->
 
     <!-- joint list -->
@@ -147,6 +128,7 @@
       <limit lower="${radians(-180)}" upper="${radians(180)}" effort="368.48" velocity="${radians(130)}"/>
       <dynamics damping="1"/>
     </joint>
+    
     <joint name="${prefix}joint_2_l" type="revolute">
       <parent link="${prefix}link_1_s"/>
       <child link="${prefix}link_2_l"/>
@@ -155,6 +137,7 @@
       <limit lower="${radians(-180)}" upper="${radians(180)}" effort="368.48" velocity="${radians(130)}"/>
       <dynamics damping="1"/>
     </joint>
+    
     <joint name="${prefix}joint_3_u" type="revolute">
       <parent link="${prefix}link_2_l"/>
       <child link="${prefix}link_3_u"/>
@@ -163,6 +146,7 @@
       <limit lower="${radians(-5)}" upper="${radians(355)}" effort="141.12" velocity="${radians(180)}"/>
       <dynamics damping="1"/>
     </joint>
+    
     <joint name="${prefix}joint_4_r" type="revolute">
       <parent link="${prefix}link_3_u"/>
       <child link="${prefix}link_4_r"/>
@@ -171,6 +155,7 @@
       <limit lower="${radians(-180)}" upper="${radians(180)}" effort="39.20" velocity="${radians(180)}"/>
       <dynamics damping="1"/>
     </joint>
+    
     <joint name="${prefix}joint_5_b" type="revolute">
       <parent link="${prefix}link_4_r"/>
       <child link="${prefix}link_5_b"/>
@@ -179,6 +164,7 @@
       <limit lower="${radians(-180)}" upper="${radians(180)}" effort="31.36" velocity="${radians(250)}"/>
       <dynamics damping="1"/>
     </joint>
+    
     <joint name="${prefix}joint_6_t" type="revolute">
       <parent link="${prefix}link_5_b"/>
       <child link="${prefix}link_6_t"/>
@@ -187,11 +173,14 @@
       <limit lower="${radians(-180)}" upper="${radians(180)}" effort="31.36" velocity="${radians(250)}"/>
       <dynamics damping="1"/>
     </joint>
+    
     <joint name="${prefix}joint_6_t-tool0" type="fixed">
       <origin xyz="0 0 -0.130" rpy="${pi} 0 0"/>
       <parent link="${prefix}link_6_t"/>
       <child link="${prefix}tool0"/>
     </joint>
+    
+  
     <!-- end of joint list -->
 
     <!-- ROS base_link to Robot Manufacturer World Coordinates transform -->

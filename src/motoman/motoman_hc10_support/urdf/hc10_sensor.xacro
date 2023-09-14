@@ -1,0 +1,30 @@
+<?xml version="1.0" ?>
+<robot xmlns:xacro="http://ros.org/wiki/xacro">
+  <xacro:macro name="motoman_hc10_sensor" params="prefix">
+    <xacro:include filename="$(find motoman_resources)/urdf/common_materials.xacro"/>
+
+    
+    <!-- Attach Kinect -->
+    <joint type="fixed" name="camera_joint">
+    	<origin xyz="0 0 0" rpy="0 0 0"/>
+    	<child link="${prefix}camera_link"/>
+    	<parent link="${prefix}tool0"/>
+    	<axis xyz="0 0 0" rpy="0 0 0"/>
+    	<limit effort="10000" velocity="1000"/>
+    	<dynamics damping="1.0" friction="1.0"/>
+    </joint>
+    
+  
+   <link name="${prefix}camera_link"> 
+     <visual>
+   	<geometry>
+   	  <box size="0.010 0.03 0.03"/> 
+  	</geometry>
+   	<material name="red"/>
+     </visual>
+   </link>
+    
+    <!-- end of joint list -->
+
+  </xacro:macro>
+</robot>

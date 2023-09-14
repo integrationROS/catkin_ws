@@ -1,5 +1,5 @@
-stomp/hc10_arm:
-  group_name: hc10_arm
+stomp/arm:
+  group_name: arm
   optimization:
     num_timesteps: 60
     num_iterations: 40
@@ -37,8 +37,8 @@ stomp/hc10_arm:
         publish_intermediate: True
         marker_topic: stomp_trajectory
         marker_namespace: optimized
-stomp/hc10_end:
-  group_name: hc10_end
+stomp/hand:
+  group_name: hand
   optimization:
     num_timesteps: 60
     num_iterations: 40

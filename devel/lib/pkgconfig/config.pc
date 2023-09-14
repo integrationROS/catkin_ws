@@ -1,0 +1,1 @@
+/home/etudiant/catkin_ws/devel/.private/config/lib/pkgconfig/config.pc
