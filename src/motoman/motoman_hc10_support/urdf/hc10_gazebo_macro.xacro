@@ -31,9 +31,9 @@
             </gazebo>
         </xacro:macro>
         <xacro:hc10_env link="${prefix}box_fixed"/>
-        <xacro:hc10_env link="${prefix}wall1"/>
-        <xacro:hc10_env link="${prefix}wall2"/>
-        <xacro:hc10_env link="${prefix}wall3"/>
+        <xacro:hc10_env link="${prefix}wall_fond"/>
+        <xacro:hc10_env link="${prefix}wall_g"/>
+        <xacro:hc10_env link="${prefix}wall_d"/>
         <xacro:hc10_obj link="${prefix}cardboard_box"/>
         <xacro:hc10_arm link="${prefix}base_link"/>
         <xacro:hc10_arm link="${prefix}link_1_s"/>
