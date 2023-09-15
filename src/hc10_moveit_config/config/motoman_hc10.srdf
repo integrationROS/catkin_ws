@@ -25,7 +25,7 @@
         <joint name="joint_1_s" value="1.7183"/>
         <joint name="joint_2_l" value="0.2951"/>
         <joint name="joint_3_u" value="0.6418"/>
-        <joint name="joint_4_r" value="-2.9332"/>
+        <joint name="joint_4_r" value="0"/>
         <joint name="joint_5_b" value="-0.6769"/>
     </group_state>
     <group_state name="Low" group="hc10_arm">
