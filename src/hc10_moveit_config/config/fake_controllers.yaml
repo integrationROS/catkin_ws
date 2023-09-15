@@ -7,6 +7,7 @@ controller_list:
       - joint_3_u
       - joint_4_r
       - joint_5_b
+      - joint_6_t
   - name: fake_hc10_end_controller
     type: $(arg fake_execution_type)
     joints:

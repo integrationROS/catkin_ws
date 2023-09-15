@@ -6,10 +6,6 @@
 <robot name="motoman_hc10">
     <!-- link list -->
     <link name="world" />
-    <joint name="world_fixed" type="fixed">
-        <parent link="world" />
-        <child link="base_link" />
-    </joint>
     <link name="base_link">
         
 <inertial>
@@ -168,6 +164,10 @@
     <link name="tool0" />
     <!-- end of link list -->
     <!-- joint list -->
+    <joint name="world_fixed" type="fixed">
+        <parent link="world" />
+        <child link="base_link" />
+    </joint>
     <joint name="joint_1_s" type="revolute">
         <parent link="base_link" />
         <child link="link_1_s" />

@@ -562,7 +562,7 @@ def main():
         input(
             "============ Press `Enter` to execute a movement using a circle ..."
         )
-        tutorial.circle(a=-0.33, b=0.33,c=0.2)
+        tutorial.circle(a=-0.35, b=0.35,c=0.6)
         # tutorial.test_path(0.3,0.3,1.0)
        
         

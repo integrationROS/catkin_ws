@@ -16,6 +16,7 @@
         <joint name="joint_3_u"/>
         <joint name="joint_4_r"/>
         <joint name="joint_5_b"/>
+        <joint name="joint_6_t"/>
     </group>
     <group name="hc10_end">
         <joint name="joint_6_t"/>
@@ -28,6 +29,7 @@
         <joint name="joint_3_u" value="0.6418"/>
         <joint name="joint_4_r" value="-0.2603"/>
         <joint name="joint_5_b" value="0.5728"/>
+        <joint name="joint_6_t" value="0"/>
     </group_state>
     <group_state name="Up" group="hc10_arm">
         <joint name="joint_1_s" value="0.8505"/>
@@ -35,6 +37,7 @@
         <joint name="joint_3_u" value="3.1411"/>
         <joint name="joint_4_r" value="0.8505"/>
         <joint name="joint_5_b" value="0.0521"/>
+        <joint name="joint_6_t" value="0"/>
     </group_state>
     <!--DISABLE COLLISIONS: By default it is assumed that any link of the robot could potentially come into collision with any other link in the robot. This tag disables collision checking between a specified pair of links. -->
     <disable_collisions link1="base_link" link2="link_1_s" reason="Adjacent"/>
