@@ -197,5 +197,8 @@
     <!-- end of joint list -->
 
     <!-- ROS base_link to Robot Manufacturer World Coordinates transform -->
+
+
+    
   </xacro:macro>
 </robot>

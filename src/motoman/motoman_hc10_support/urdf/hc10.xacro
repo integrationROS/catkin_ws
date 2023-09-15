@@ -3,11 +3,11 @@
   <xacro:include filename="$(find motoman_hc10_support)/urdf/hc10_macro.xacro" />
   <xacro:include filename="$(find motoman_hc10_support)/urdf/hc10_gazebo_macro.xacro"/>
   <xacro:include filename="$(find motoman_hc10_support)/urdf/hc10_control.xacro"/> 
-  <xacro:include filename="$(find motoman_hc10_support)/urdf/hc10_env_macro.xacro"/> 
+  <!--xacro:include filename="$(find motoman_hc10_support)/urdf/hc10_env_macro.xacro"/--> 
   <xacro:include filename="$(find motoman_hc10_support)/urdf/hc10_sensor.xacro" />
   <xacro:motoman_hc10 prefix=""/>
   <xacro:hc10_gazebo prefix=""/>
   <xacro:hc10_control prefix=""/>
-  <xacro:hc10_workspace prefix=""/>  
+  <!--xacro:hc10_workspace prefix=""/-->  
   <xacro:motoman_hc10_sensor prefix=""/>
 </robot>

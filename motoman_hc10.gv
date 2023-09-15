@@ -1,7 +1,6 @@
 digraph G {
 node [shape=box];
 "world" [label="world"];
-"box" [label="box"];
 "base_link" [label="base_link"];
 "link_1_s" [label="link_1_s"];
 "link_2_l" [label="link_2_l"];
@@ -12,8 +11,6 @@ node [shape=box];
 "tool0" [label="tool0"];
 "camera_link" [label="camera_link"];
 node [shape=ellipse, color=blue, fontcolor=blue];
-"world" -> "box_fixed" [label="xyz: 0.75 0.75 0.075 \nrpy: 0 -0 0"]
-"box_fixed" -> "box"
 "world" -> "world_fixed" [label="xyz: 0.1 0.1 0.5 \nrpy: 0 -0 0"]
 "world_fixed" -> "base_link"
 "base_link" -> "joint_1_s" [label="xyz: 0 0 0.275 \nrpy: 0 -0 0"]

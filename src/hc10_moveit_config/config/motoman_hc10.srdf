@@ -20,9 +20,6 @@
         <joint name="joint_6_t-tool0"/>
         <joint name="camera_joint"/>
     </group>
-    <group name="hc10_env">
-        <joint name="box_fixed"/>
-    </group>
     <!--GROUP STATES: Purpose: Define a named state for a particular group, in terms of joint values. This is useful to define states like 'folded arms'-->
     <group_state name="home" group="hc10_arm">
         <joint name="joint_1_s" value="1.7183"/>
@@ -30,13 +27,15 @@
         <joint name="joint_3_u" value="0.6418"/>
         <joint name="joint_4_r" value="-2.9332"/>
         <joint name="joint_5_b" value="-0.6769"/>
+        <joint name="joint_6_t" value="-0.1215"/>
     </group_state>
     <group_state name="Low" group="hc10_arm">
         <joint name="joint_1_s" value="0"/>
         <joint name="joint_2_l" value="0.8852"/>
         <joint name="joint_3_u" value="1.579"/>
         <joint name="joint_4_r" value="0"/>
-        <joint name="joint_5_b" value="0"/>
+        <joint name="joint_5_b" value="0.018"/>
+        <joint name="joint_6_t" value="0.538"/>
     </group_state>
     <group_state name="EnY" group="hc10_arm">
         <joint name="joint_1_s" value="-0.2951"/>
@@ -44,12 +43,11 @@
         <joint name="joint_3_u" value="0.8848"/>
         <joint name="joint_4_r" value="0"/>
         <joint name="joint_5_b" value="0"/>
+        <joint name="joint_6_t" value="1.3017"/>
     </group_state>
     <!--DISABLE COLLISIONS: By default it is assumed that any link of the robot could potentially come into collision with any other link in the robot. This tag disables collision checking between a specified pair of links. -->
-    <disable_collisions link1="base_link" link2="box" reason="Adjacent"/>
     <disable_collisions link1="base_link" link2="link_1_s" reason="Adjacent"/>
     <disable_collisions link1="base_link" link2="link_3_u" reason="Never"/>
-    <disable_collisions link1="box" link2="link_1_s" reason="Never"/>
     <disable_collisions link1="link_1_s" link2="link_2_l" reason="Adjacent"/>
     <disable_collisions link1="link_1_s" link2="link_3_u" reason="Never"/>
     <disable_collisions link1="link_2_l" link2="link_3_u" reason="Adjacent"/>
