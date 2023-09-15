@@ -16,6 +16,7 @@
         <joint name="joint_3_u"/>
         <joint name="joint_4_r"/>
         <joint name="joint_5_b"/>
+        <joint name="joint_6_t"/>
     </group>
     <group name="hc10_env">
         <joint name="box_fixed"/>
@@ -25,15 +26,17 @@
         <joint name="joint_1_s" value="1.7183"/>
         <joint name="joint_2_l" value="0.2951"/>
         <joint name="joint_3_u" value="0.6418"/>
-        <joint name="joint_4_r" value="-2.9332"/>
+        <joint name="joint_4_r" value="0.0"/>
         <joint name="joint_5_b" value="-0.6769"/>
+        <joint name="joint_6_t" value="0"/>
     </group_state>
     <group_state name="Low" group="hc10_arm">
         <joint name="joint_1_s" value="0"/>
-        <joint name="joint_2_l" value="0.8852"/>
+        <joint name="joint_2_l" value="-0.0868"/>
         <joint name="joint_3_u" value="1.579"/>
         <joint name="joint_4_r" value="0"/>
         <joint name="joint_5_b" value="0"/>
+        <joint name="joint_6_t" value="0"/>
     </group_state>
     <group_state name="EnY" group="hc10_arm">
         <joint name="joint_1_s" value="-0.2951"/>
@@ -41,6 +44,7 @@
         <joint name="joint_3_u" value="0.8848"/>
         <joint name="joint_4_r" value="0"/>
         <joint name="joint_5_b" value="0"/>
+        <joint name="joint_6_t" value="0"/>
     </group_state>
     <group_state name="test_collision2" group="hc10_arm">
         <joint name="joint_1_s" value="0.1909"/>
@@ -48,6 +52,7 @@
         <joint name="joint_3_u" value="1.1972"/>
         <joint name="joint_4_r" value="1.2323"/>
         <joint name="joint_5_b" value="-0.1215"/>
+        <joint name="joint_6_t" value="0"/>
     </group_state>
     <group_state name="test_collision_1" group="hc10_arm">
         <joint name="joint_1_s" value="1.2323"/>
@@ -55,18 +60,43 @@
         <joint name="joint_3_u" value="1.2319"/>
         <joint name="joint_4_r" value="-1.6141"/>
         <joint name="joint_5_b" value="-0.1562"/>
+        <joint name="joint_6_t" value="0"/>
     </group_state>
     <!--DISABLE COLLISIONS: By default it is assumed that any link of the robot could potentially come into collision with any other link in the robot. This tag disables collision checking between a specified pair of links. -->
+    <disable_collisions link1="base_link" link2="box" reason="Adjacent"/>
+    <disable_collisions link1="base_link" link2="cardboard_box" reason="Never"/>
     <disable_collisions link1="base_link" link2="link_1_s" reason="Adjacent"/>
     <disable_collisions link1="base_link" link2="link_3_u" reason="Never"/>
+    <disable_collisions link1="base_link" link2="wall_d" reason="Never"/>
+    <disable_collisions link1="base_link" link2="wall_fond" reason="Never"/>
+    <disable_collisions link1="base_link" link2="wall_g" reason="Never"/>
+    <disable_collisions link1="box" link2="cardboard_box" reason="Adjacent"/>
+    <disable_collisions link1="box" link2="link_1_s" reason="Never"/>
+    <disable_collisions link1="box" link2="wall_d" reason="Adjacent"/>
+    <disable_collisions link1="box" link2="wall_fond" reason="Adjacent"/>
+    <disable_collisions link1="box" link2="wall_g" reason="Adjacent"/>
+    <disable_collisions link1="cardboard_box" link2="link_1_s" reason="Never"/>
+    <disable_collisions link1="cardboard_box" link2="wall_d" reason="Never"/>
+    <disable_collisions link1="cardboard_box" link2="wall_fond" reason="Never"/>
+    <disable_collisions link1="cardboard_box" link2="wall_g" reason="Never"/>
     <disable_collisions link1="link_1_s" link2="link_2_l" reason="Adjacent"/>
     <disable_collisions link1="link_1_s" link2="link_3_u" reason="Never"/>
+    <disable_collisions link1="link_1_s" link2="wall_d" reason="Never"/>
+    <disable_collisions link1="link_1_s" link2="wall_fond" reason="Never"/>
+    <disable_collisions link1="link_1_s" link2="wall_g" reason="Never"/>
     <disable_collisions link1="link_2_l" link2="link_3_u" reason="Adjacent"/>
     <disable_collisions link1="link_2_l" link2="link_4_r" reason="Never"/>
+    <disable_collisions link1="link_2_l" link2="wall_d" reason="Never"/>
+    <disable_collisions link1="link_2_l" link2="wall_fond" reason="Never"/>
     <disable_collisions link1="link_3_u" link2="link_4_r" reason="Adjacent"/>
     <disable_collisions link1="link_3_u" link2="link_5_b" reason="Never"/>
     <disable_collisions link1="link_3_u" link2="link_6_t" reason="Never"/>
+    <disable_collisions link1="link_3_u" link2="wall_d" reason="Never"/>
+    <disable_collisions link1="link_3_u" link2="wall_fond" reason="Never"/>
     <disable_collisions link1="link_4_r" link2="link_5_b" reason="Adjacent"/>
     <disable_collisions link1="link_4_r" link2="link_6_t" reason="Never"/>
     <disable_collisions link1="link_5_b" link2="link_6_t" reason="Adjacent"/>
+    <disable_collisions link1="wall_d" link2="wall_fond" reason="Default"/>
+    <disable_collisions link1="wall_d" link2="wall_g" reason="Never"/>
+    <disable_collisions link1="wall_fond" link2="wall_g" reason="Default"/>
 </robot>

@@ -3,7 +3,7 @@
   <arg name="paused" default="false"/>
   <arg name="gazebo_gui" default="true"/>
   <arg name="initial_joint_positions" doc="Initial joint configuration of the robot"
-       default=" -J joint_1_s 1.7183 -J joint_2_l 0.2951 -J joint_3_u 0.6418 -J joint_4_r -2.9332 -J joint_5_b -0.6769"/>
+       default=" -J joint_1_s 1.7183 -J joint_2_l 0.2951 -J joint_3_u 0.6418 -J joint_4_r 0.0 -J joint_5_b -0.6769 -J joint_6_t 0"/>
 
   <!-- startup simulated world -->
   <include file="$(find gazebo_ros)/launch/empty_world.launch">
